@@ -1,73 +1,169 @@
-# Welcome to your Lovable project
+## 🧾 Expense Tracker Dashboard
 
-## Project info
+### 🧩 Summary of Recent Changes
 
-**URL**: https://lovable.dev/projects/e8f58732-c8de-4f18-bb0d-2e50c979ce83
+This project has been **migrated from the Lovable Cloud stack** to a **self-hosted full-stack architecture** powered by:
 
-## How can I edit this code?
+* 🧠 **MongoDB Atlas** for database and data persistence
+* ☁️ **UploadThing** for secure, scalable receipt uploads
+* ⚙️ **Node.js + Express** backend for RESTful APIs
+* ⚡ **React + Vite + ShadCN/UI** frontend for a modern user experience
 
-There are several ways of editing your application.
+This migration improves performance, scalability, and developer control while removing dependency on external cloud services.
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e8f58732-c8de-4f18-bb0d-2e50c979ce83) and start prompting.
+### 🚀 Overview
 
-Changes made via Lovable will be committed automatically to this repo.
+**Fin Insight Lab** is a personal finance management dashboard that allows users to track expenses, visualize spending trends, upload receipts, and manage budgets — built with a fully modular, type-safe stack.
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### 🧠 Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+| Layer          | Tech                                                             |
+| -------------- | ---------------------------------------------------------------- |
+| **Frontend**   | React 18, TypeScript, Vite, ShadCN/UI, TailwindCSS, Lucide Icons |
+| **Backend**    | Node.js, Express, TypeScript                                     |
+| **Database**   | MongoDB Atlas (Mongoose)                                         |
+| **Uploads**    | UploadThing                                                      |
+| **Auth**       | JWT (JSON Web Tokens)                                            |
+| **Validation** | Zod                                                              |
+| **Animations** | Framer-Motion                                                    |
+| **API Calls**  | Axios                                                            |
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+### 📦 Project Structure
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+```
+fin-insight-lab-01/
+├── backend/
+│   ├── server.ts             # Express server entry
+│   ├── models/               # Mongoose models
+│   ├── routes/               # API routes
+│   ├── utils/                # Utility functions
+│   └── .env                  # Backend environment variables
+│
+├── src/                      # Frontend (React)
+│   ├── components/           # UI components
+│   ├── pages/                # App pages (Dashboard, Login, etc.)
+│   ├── lib/                  # Helpers (API fetch, storage)
+│   ├── hooks/                # Custom React hooks
+│   └── main.tsx              # Frontend entry
+│
+├── .env                      # Global environment (Frontend)
+├── .gitignore
+└── README.md
+```
 
-# Step 3: Install the necessary dependencies.
-npm i
+---
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### ⚙️ Environment Setup
+
+#### 🧩 Frontend `.env`
+
+```bash
+VITE_API_URL=http://localhost:4000
+UPLOADTHING_APP_ID=your_uploadthing_app_id
+UPLOADTHING_SECRET=your_uploadthing_secret
+```
+
+#### 🧩 Backend `.env`
+
+```bash
+PORT=4000
+MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/expenses
+UPLOADTHING_SECRET=your_uploadthing_secret
+UPLOADTHING_APP_ID=your_uploadthing_app_id
+JWT_SECRET=your_jwt_secret
+```
+
+> ⚠️ **Never commit `.env` files.** Use `.env.example` for placeholders.
+
+---
+
+### 🧠 Installation & Running Locally
+
+#### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/yourusername/fin-insight-lab-01.git
+cd fin-insight-lab-01
+```
+
+#### 2️⃣ Install dependencies
+
+```bash
+npm install
+cd backend && npm install
+cd ..
+```
+
+#### 3️⃣ Run development servers (frontend + backend together)
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+* Frontend: [http://localhost:5173](http://localhost:5173)
+* Backend: [http://localhost:4000](http://localhost:4000)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+### 🌐 API Endpoints
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+| Method   | Endpoint             | Description             |
+| -------- | -------------------- | ----------------------- |
+| `POST`   | `/api/auth/register` | Register a new user     |
+| `POST`   | `/api/auth/login`    | Login and get JWT token |
+| `GET`    | `/api/expenses`      | Get all user expenses   |
+| `POST`   | `/api/expenses`      | Add new expense         |
+| `DELETE` | `/api/expenses/:id`  | Delete expense          |
+| `GET`    | `/api/stats`         | Get spending statistics |
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+### 🧾 UploadThing (Receipts)
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+* Upload receipts through the **Add Expense** dialog.
+* Files are uploaded securely using **UploadThing** and linked to the MongoDB record.
+* Ensure your UploadThing keys are correctly configured in `.env`.
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/e8f58732-c8de-4f18-bb0d-2e50c979ce83) and click on Share -> Publish.
+### 🧰 Scripts
 
-## Can I connect a custom domain to my Lovable project?
+| Command                        | Description                         |
+| ------------------------------ | ----------------------------------- |
+| `npm run dev`                  | Run frontend + backend concurrently |
+| `npm run dev --prefix backend` | Run backend only                    |
+| `npm run build`                | Build frontend                      |
+| `npm run start`                | Start production server             |
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### 📊 Features
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+✅ Expense tracking with categories, date, and description
+✅ Receipt uploads using UploadThing
+✅ Real-time analytics dashboard
+✅ Secure JWT authentication
+✅ MongoDB persistence
+✅ Modern responsive UI (ShadCN + TailwindCSS)
+✅ Fully TypeScript & Zod-validated codebase
+
+---
+
+### 🧠 Troubleshooting
+
+| Issue                         | Solution                                  |
+| ----------------------------- | ----------------------------------------- |
+| **Port 4000 already in use**  | `npx kill-port 4000`                      |
+| **Uploads not working**       | Check UploadThing keys in `.env`          |
+| **MongoDB connection failed** | Verify connection string and IP whitelist |
+| **Invalid JWT**               | Logout and login again                    |
+
+---
+
+### 🪪 License
