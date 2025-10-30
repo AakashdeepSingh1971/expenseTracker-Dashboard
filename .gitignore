@@ -1,0 +1,100 @@
+# =========================
+# Node & Package Management
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+yarn.lock
+.pnpm-store/
+
+# =========================
+# Build / Output
+# =========================
+dist/
+build/
+out/
+.next/
+.vercel/
+.netlify/
+tmp/
+temp/
+.cache/
+coverage/
+
+# =========================
+# Environment Files
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# TypeScript
+# =========================
+*.tsbuildinfo
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+*.log.*
+lerna-debug.log
+debug.log
+
+# =========================
+# IDE / OS Files
+# =========================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.swn
+*.bak
+*.tmp
+
+# =========================
+# UploadThing / Temp Uploads
+# =========================
+uploadthing/
+uploads/
+public/uploads/
+
+# =========================
+# Miscellaneous
+# =========================
+*.local
+*.pid
+*.seed
+*.tgz
+*.lock
+*.zip
+
+# =========================
+# Backend Specific
+# =========================
+backend/dist/
+backend/.env
+backend/.env.local
+backend/.tsbuildinfo
+
+# =========================
+# Frontend Specific
+# =========================
+frontend/dist/
+frontend/.env
+frontend/.env.local
+frontend/.tsbuildinfo
+
+# =========================
+# Testing
+# =========================
+coverage/
+*.spec.ts
+*.test.ts
+jest.config.js
