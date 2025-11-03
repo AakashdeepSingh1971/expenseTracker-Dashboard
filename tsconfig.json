@@ -1,19 +1,23 @@
 {
 	"compilerOptions": {
+		/* === Core === */
 		"target": "ESNext",
 		"lib": ["DOM", "DOM.Iterable", "ESNext"],
-		"allowJs": true,
-		"skipLibCheck": true,
-		"strictNullChecks": false,
-		"noUnusedLocals": false,
-		"noUnusedParameters": false,
-		"noImplicitAny": false,
-		"esModuleInterop": true,
 		"module": "ESNext",
 		"moduleResolution": "Bundler",
-		"resolveJsonModule": true,
-		"isolatedModules": true,
 		"jsx": "react-jsx",
+		"allowJs": true,
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+
+		/* === Strictness & Safety === */
+		"strict": true,
+		"noEmit": true,
+		"skipLibCheck": true,
+
+		/* === Paths (for cleaner imports) === */
 		"baseUrl": ".",
 		"paths": {
 			"@/*": ["./*"],
@@ -21,25 +25,23 @@
 			"@/lib/*": ["./app/lib/*"],
 			"@/models/*": ["./app/models/*"],
 			"@/providers/*": ["./app/providers/*"],
+			"@/hooks/*": ["./app/hooks/*"],
+			"@/types/*": ["./app/types/*"],
+			"@/utils/*": ["./app/utils/*"],
 			"@/api/*": ["./app/api/*"]
 		},
-		"allowSyntheticDefaultImports": true,
-		"forceConsistentCasingInFileNames": true,
-		"strict": false,
-		"noEmit": true,
+
+		/* === Experimental === */
 		"incremental": true,
+		"isolatedModules": true,
+
+		/* === Next.js Plugin === */
 		"plugins": [
 			{
 				"name": "next"
 			}
 		]
 	},
-	"include": [
-		"next-env.d.ts",
-		"**/*.ts",
-		"**/*.tsx",
-		".next/types/**/*.ts",
-		".next/dev/types/**/*.ts"
-	],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
 	"exclude": ["node_modules"]
 }

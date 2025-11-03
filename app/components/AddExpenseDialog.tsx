@@ -24,7 +24,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 import { apiFetch } from "@/lib/api";
 import { UploadButton } from "@uploadthing/react";
-import type { OurFileRouter } from "@/app/api/uploadthing/route";
+import type { OurFileRouter } from "@/api/uploadthing/route";
 
 // ✅ Form validation schema
 const expenseSchema = z.object({
