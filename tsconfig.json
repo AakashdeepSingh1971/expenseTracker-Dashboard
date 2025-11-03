@@ -1,47 +1,73 @@
 {
-	"compilerOptions": {
-		/* === Core === */
-		"target": "ESNext",
-		"lib": ["DOM", "DOM.Iterable", "ESNext"],
-		"module": "ESNext",
-		"moduleResolution": "Bundler",
-		"jsx": "react-jsx",
-		"allowJs": true,
-		"esModuleInterop": true,
-		"resolveJsonModule": true,
-		"allowSyntheticDefaultImports": true,
-		"forceConsistentCasingInFileNames": true,
-
-		/* === Strictness & Safety === */
-		"strict": true,
-		"noEmit": true,
-		"skipLibCheck": true,
-
-		/* === Paths (for cleaner imports) === */
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["./*"],
-			"@/components/*": ["./app/components/*"],
-			"@/lib/*": ["./app/lib/*"],
-			"@/models/*": ["./app/models/*"],
-			"@/providers/*": ["./app/providers/*"],
-			"@/hooks/*": ["./app/hooks/*"],
-			"@/types/*": ["./app/types/*"],
-			"@/utils/*": ["./app/utils/*"],
-			"@/api/*": ["./app/api/*"]
-		},
-
-		/* === Experimental === */
-		"incremental": true,
-		"isolatedModules": true,
-
-		/* === Next.js Plugin === */
-		"plugins": [
-			{
-				"name": "next"
-			}
-		]
-	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-	"exclude": ["node_modules"]
+  "compilerOptions": {
+    /* === Core === */
+    "target": "ESNext",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "allowJs": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    /* === Strictness & Safety === */
+    "strict": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    /* === Paths (for cleaner imports) === */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./*"
+      ],
+      "@/components/*": [
+        "./app/components/*"
+      ],
+      "@/lib/*": [
+        "./app/lib/*"
+      ],
+      "@/models/*": [
+        "./app/models/*"
+      ],
+      "@/providers/*": [
+        "./app/providers/*"
+      ],
+      "@/hooks/*": [
+        "./app/hooks/*"
+      ],
+      "@/types/*": [
+        "./app/types/*"
+      ],
+      "@/utils/*": [
+        "./app/utils/*"
+      ],
+      "@/api/*": [
+        "./app/api/*"
+      ]
+    },
+    /* === Experimental === */
+    "incremental": true,
+    "isolatedModules": true,
+    /* === Next.js Plugin === */
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

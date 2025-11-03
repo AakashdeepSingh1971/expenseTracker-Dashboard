@@ -92,6 +92,22 @@ export default function AuthPage() {
             </p>
           </div>
 
+          {isLogin && (
+            <div className="mb-6 p-4 bg-muted/50 rounded-lg border border-border">
+              <p className="text-xs font-semibold text-muted-foreground mb-2">
+                Demo Credentials
+              </p>
+              <div className="space-y-1 text-xs text-muted-foreground">
+                <p>
+                  <span className="font-medium">Email:</span> admin@admin.com
+                </p>
+                <p>
+                  <span className="font-medium">Password:</span> admin123
+                </p>
+              </div>
+            </div>
+          )}
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
