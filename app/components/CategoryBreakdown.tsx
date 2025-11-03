@@ -27,7 +27,7 @@ export default function CategoryBreakdown({ data }: { data: any }) {
 
   return (
     <motion.div
-      className="bg-card rounded-2xl p-6 border border-border shadow-sm"
+      className="bg-card rounded-2xl p-6 border border-border shadow-sm h-full content-center"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
