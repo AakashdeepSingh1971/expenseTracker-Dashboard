@@ -20,8 +20,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Plus, Upload, X } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
-import { UploadButton } from "@uploadthing/react"; // ✅ UploadThing import
 import { apiFetch } from "@/lib/api"; // ✅ Your custom API helper
+import { UploadButton } from "@uploadthing/react";
+import type { OurFileRouter } from "@backend/uploadthing.config"; // note the path!
+
 
 const expenseSchema = z.object({
   amount: z.number().positive("Amount must be positive"),
@@ -215,7 +217,7 @@ const AddExpenseDialog = ({
             ) : (
               <div className="border-2 border-dashed rounded-lg p-6 text-center hover:border-primary/50 transition-colors">
                 {/* ✅ UploadThing */}
-                <UploadButton
+                <UploadButton<OurFileRouter, "receiptUploader">
                   endpoint="receiptUploader"
                   onClientUploadComplete={(res) => {
                     if (res && res[0]?.url) {
@@ -223,12 +225,12 @@ const AddExpenseDialog = ({
                       toast.success("Receipt uploaded successfully!");
                     }
                   }}
-                  onUploadError={() =>
-                    toast.error("Failed to upload receipt image")
-                  }
+                  onUploadBegin={() => toast.info("Uploading receipt...")}
+                  onUploadError={() => toast.error("Failed to upload receipt image")}
                 />
+
                 <p className="text-sm text-muted-foreground mt-2">
-                  Upload an image of your receipt (max 5MB)
+                  Upload an image of your receipt (max 8MB)
                 </p>
               </div>
             )}

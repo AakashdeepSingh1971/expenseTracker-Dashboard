@@ -20,10 +20,23 @@ const RecentTransactions = ({ userId }: { userId: string }) => {
     const fetchTransactions = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/expenses/${userId}`
-        );
-        setTransactions(response.data);
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+          console.error("No auth token found");
+          return;
+        }
+
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/api/expenses`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        if (res.data) {
+          setTransactions(res.data);
+        }
+
+
       } catch (error) {
         console.error("Error fetching transactions:", error);
       } finally {

@@ -35,6 +35,7 @@ router.get('/', authMiddleware, async (req: AuthRequest, res) => {
 // Delete expense
 router.delete('/:id', authMiddleware, async (req: AuthRequest, res) => {
   try {
+    console.log(req.params.id)
     await Expense.findOneAndDelete({ _id: req.params.id, userId: req.user!.id });
     res.json({ message: 'Deleted' });
   } catch (err) {
